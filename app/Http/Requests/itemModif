@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class itemModif extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * 
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'id' => 'required|string|max:6',
+            'nom' => 'required|string|max:30',
+            'lore' => 'required|string|max:200',
+            'type' => 'required',
+            'pallier' => 'required|string|max:2',
+            'vit' => 'nullable|string|max:11',
+            'def' => 'nullable|string|max:11',
+        ];
+    }
+}
